@@ -198,7 +198,7 @@
   o.addEventListener('click',function(ev){if(ev.target===o||ev.target.closest('.faqx'))cl()});document.addEventListener('keydown',k);document.body.appendChild(o)}
 
  function viberIOS(n){
-  var addU='viber://add?number=%2B'+n,left=false,t0=Date.now();
+  var addU='viber://add?number='+n,left=false,t0=Date.now();
   try{if(navigator.clipboard)navigator.clipboard.writeText('+'+n).catch(function(){})}catch(x){}
   function gone(){left=true}
   function back(){if(document.hidden)return;document.removeEventListener('visibilitychange',back);
@@ -212,7 +212,7 @@
   document.addEventListener('visibilitychange',function(){if(document.hidden)left=true},{once:true});
   window.addEventListener('pagehide',gone,{once:true});
   document.addEventListener('visibilitychange',back);
-  location.href='viber://chat?number=%2B'+n;
+  location.href='viber://chat?number='+n;
   setTimeout(function(){if(!left&&!document.hidden)location.href=addU},1500)}
  function contact(b){var raw=b.getAttribute('data-v'),t=raw.replace(/\n/g,'\r\n'),n=(b.getAttribute('data-n')||'contact').replace(/[^\w\-]+/g,'_')+'.vcf';
   var blob=new Blob([t],{type:'text/vcard;charset=utf-8'});
